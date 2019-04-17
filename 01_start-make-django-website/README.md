@@ -13,22 +13,22 @@ Django是使用Python所寫成的一個網站開發工具。為了能結合Pytho
 
 #### 選擇到Python官網[下載](https://www.python.org/downloads/)
 參考下圖，可以在紅框內找到對應的工作環境找到適合的安裝檔。這邊建議使用Python 3.6.8，因為我們在未來開發網站中會用到的一些工具，在Python 3.7.x中可能還不適用。提供給Windows和Mac OS的Python安裝檔都有支援32位元和64位元，如果開發環境是64位元的話，可以直接安裝64位元的Python。
-![下載Python](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/python-install.png)
+![下載Python](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/python-install.png)
 
 #### 選擇到Anaconda網站[下載](https://www.anaconda.com/distribution/)
 選擇Anaconda的好處是，可以一次就安裝好Python中大部分會使用的工具包。像是如果要做數據處理需要的numpy和pandas，網頁爬蟲會用到的BeautifulSoup，或是機器學習的SciKit-Learn。Anaconda都會直接準備好。同時還提供Juypter Notebook和Spyder兩個用來開發Python的整合開發環境（IDE）。可以說是Python使用者的懶人包，非常推薦。
 
 連到上面連結中Anaconda的網站後，可以找到Download。
-![下載Anaconda](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/anaconda-dl.png)
+![下載Anaconda](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/anaconda-dl.png)
 
 點選進去後，可以看到目前提供的是Python 3.7的版本。我們可以先安裝此版本的Anaconda。
-![選擇版本](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/anaconda-version-select.png)
+![選擇版本](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/anaconda-version-select.png)
 
 再使用<code>conda install python=3.6</code>的指令，更改Python的版本。在Windows環境可以使用命令提示字元（cmd）來執行指令，或者使用Anaconda安裝時提供的Anaconda Prompt也可以。MacOS則可以使用終端機（Terminal）來執行指令。
-![cmd版本](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/cmd-python-version.png)
+![cmd版本](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/cmd-python-version.png)
 
 如果不想這麼麻煩的話，可以直接下載Anaconda 5.2.0的版本，使用Python 3.6。不同的Anaconda版本在這個網址中找到[https://repo.anaconda.com/archive/](https://repo.anaconda.com/archive/)
-![版本切換說明](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/anaconda-version-intro.png)
+![版本切換說明](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/anaconda-version-intro.png)
 
 ### 二、開始建立django網站
 
@@ -45,7 +45,7 @@ Django是使用Python所寫成的一個網站開發工具。為了能結合Pytho
 讓我們先開啟剛建立的虛擬開發環境。`django-venv\Scripts\activate`
 
 然後安裝django，`pip install django`。目前最新的版本是2.2。在安裝完django後。這邊提醒我們的pip版本可以更新。這裡就順帶執行pip的更新。pip是Python中用來安裝工具包的程式。`python -m pip install –upgrade pip`
-![建立虛擬開發環境](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/cmd-create-venv.png)
+![建立虛擬開發環境](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/cmd-create-venv.png)
 
 再來就可以使用django的指令來建立第一個django網站了。`django-admin startproject mysite`。我們將這個django網站命名為mysite。在資料夾中可以看到django新建了一個同名的資料夾。
 
@@ -126,6 +126,6 @@ urlpatterns = [
 ]
 ```
 這些都搞定後，在cmd中執行我們的網站伺服器，就可以看到我們完成的第一個python網站了。`python manage.py runserver`
-![啟動網站](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/cmd-runserver.png)
+![啟動網站](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/cmd-runserver.png)
 在網址列輸入[http://127.0.0.1:8000/](http://127.0.0.1:8000/)，就可以看到了我們的網站了，是不是很簡單呢？
-![網站頁面](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/08/helloworld-website.png)
+![網站頁面](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/08/helloworld-website.png)

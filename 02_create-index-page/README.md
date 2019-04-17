@@ -17,13 +17,13 @@
 
 再來，輸入`python manage.py createsuperuser`就可以建立我們的後台管理者了。
 
-![建立後台管理者](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/12/cmd-createsuperuser.png)
+![建立後台管理者](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/12/cmd-createsuperuser.png)
 
 之後，我們使用`python manage.py runserver`開啟我們的網站伺服之後，在網址列輸入`http://127.0.0.1:8000/admin/`
 
 使用剛剛建立的帳號和密碼登入，就可以看到下面的管理頁面了。
 
-![後台管理頁面](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/12/django-admin-page.png)
+![後台管理頁面](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/12/django-admin-page.png)
 
 未來我們還會 在這個後台進行更多網站的管理。
 
@@ -57,7 +57,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
 `LANGUAGE_CODE = 'zh-Hant'`，將我們的網站更改成以繁體中文顯示。
 
-![中文後台登入頁](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/12/django-admin-zh-tw-login.png)
+![中文後台登入頁](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/12/django-admin-zh-tw-login.png)
 
 `TIME_ZONE = 'Asia/Taipei'`，調整我們網站的時區以台北時間為標準。
 
@@ -135,7 +135,7 @@ urlpatterns = [
 
 這樣子，上面的文字在網頁中就能以代碼的形式顯示出來。
 
-[!網頁中顯示代碼](https://github.com/yuanping24/my-first-django-project/blob/master/media/uploads/2019/04/12/code-in-page.png)
+[!網頁中顯示代碼](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/12/code-in-page.png)
 
 以上網頁中用到的靜態檔案，都可以直接從我的網站中下載得到。[https://github.com/yuanping24/my-first-django-webiste-02/tree/master/static](https://github.com/yuanping24/my-first-django-webiste-02/tree/master/static)
 
