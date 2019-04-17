@@ -29,6 +29,8 @@
 
 #### 修改django設定檔settings.py
 
+接下來，我們要開始進行一些設定的修改，才能確保django知道我們靜態檔案所存放的位置。
+
 在第二層的mysite資料夾中找到settings.py，這邊可以更改我們django網站的設定。在檔案最下面`# Internationalization`的部分，從這裡開始到最後，調整為
 ```
 # Internationalization
@@ -81,6 +83,20 @@ urlpatterns = [
 先匯入`settings`和`static`兩個函數，然後在`urlpatterns`最後面加上我們的`MEDIA`設定。
 
 ### 二、修改首頁
+
+#### 新增CSS和javascript檔案至static靜態檔案資料夾
+
+可以從下面的圖中看到，右邊的網頁會比左邊的要來得精美些。這是因為我們有使用CSS的設定，來讓網頁有更好的排版和版面設計。
+
+![CSS比較](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/12/css-comparison.png)
+
+要達到這樣的效果很簡單，我們只要添加Bootstrap [https://getbootstrap.com/](https://getbootstrap.com/)到靜態文件資料夾中就可以了。
+
+首先，在mysite資料夾中新增資料夾命名為static。接下來到[https://getbootstrap.com/docs/3.3/getting-started/#download](https://getbootstrap.com/docs/3.3/getting-started/#download)這邊下載壓縮檔，解壓縮到static資料夾中。我們在這個網站中所使用的是Bootstrap v3.3.7 版本。
+
+除此之外，要正確地使用Bootstrap，還需要JQuery.js [https://jquery.com/](https://jquery.com/)。我們在這個網站中所使用的是JQuery v2.1.4版本，可以在這裡找到[https://code.jquery.com/jquery/](https://code.jquery.com/jquery/)。下載https://code.jquery.com/jquery-2.1.4.min.js這個檔案，放到static/js/中。
+
+#### 修改首頁html
 
 因為我們已經設定好settings.py，現在只需要在index.html檔案中寫好路徑，首頁就可以抓到static中的檔案，並讓我們的頁面更好看。
 
@@ -135,11 +151,7 @@ urlpatterns = [
 
 這樣子，上面的文字在網頁中就能以代碼的形式顯示出來。
 
-[!網頁中顯示代碼](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/12/code-in-page.png)
-
-以上網頁中用到的靜態檔案，都可以直接從我的網站中下載得到。[https://github.com/yuanping24/my-first-django-webiste-02/tree/master/static](https://github.com/yuanping24/my-first-django-webiste-02/tree/master/static)
-
-同樣地，整個網站代碼也可以在這裡找到。[https://github.com/yuanping24/my-first-django-webiste-02](https://github.com/yuanping24/my-first-django-webiste-02)
+![網頁中顯示代碼](https://github.com/yuanping24/yuanping24-django/blob/master/media/uploads/2019/04/12/code-in-page.png)
 
 我們這一次透過一些CSS的應用，讓網頁能夠更鮮活地顯現出來，未來我們還會再提到更多CSS和html的部分。
 
