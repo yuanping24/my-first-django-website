@@ -1,0 +1,232 @@
+<!-- index.html -->
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="zh-Hant">
+<head>
+  <title>
+     My First Django Website 
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content="我的第一個django網站">
+  <!-- Latest compiled and minified CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/railscasts.css' %}" rel="stylesheet">
+  <!-- Latest compiled and minified JavaScript -->
+  <script type="text/javascript" src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/highlight.pack.js' %}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    body{
+	  font-family:Microsoft JhengHei;
+	  background: url(/static/images/wbp.png);
+    }
+    pre {border: 0; background-color: transparent;}
+  </style>
+</head>
+<body>
+<div class='well'>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" style="font-weight:bold;">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="/" style="margin-left:.5rem">我的第一個django網站</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right" style="margin-right:.5rem">
+          <li class="active"><a href="/">首頁</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div> 
+<div class="container">
+<div class="row">
+<div class="col-sm-8">
+<h1>開始製作django網站</h1>
+<p>
+<h3>關鍵字：django、python</h3>
+2019年4月7日<br><br>
+<p><strong>為什麼選擇django</strong></p>
+
+<p>Django是使用Python所寫成的一個網站開發工具。為了能結合Python在網頁爬蟲、大數據和神經網路等功能，因此在當初要來搭建網站時，就確定了要使用django。</p>
+
+<p>&nbsp;</p>
+
+<h4>一、安裝Python</h4>
+
+<p>要安裝Python，可以直接到Python的官方網站<a href="https://www.python.org">https://www.python.org</a>下載安裝程式。或是可以到Anaconda網站<a href="https://www.anaconda.com">https://www.anaconda.com</a>，下載他們提供的Python軟體包。</p>
+
+<p><strong>選擇到Python官網下載</strong><a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a><br />
+參考下圖，可以在紅框內找到對應的工作環境找到適合的安裝檔。這邊建議使用Python 3.6.8，因為我們在未來開發網站中會用到的一些工具，在Python 3.7.x中可能還不適用。提供給Windows和Mac OS的Python安裝檔都有支援32位元和64位元，如果開發環境是64位元的話，可以直接安裝64位元的Python。</p>
+
+<p><img alt="Python安裝" src="/media/uploads/2019/04/08/python-install.png" style="width:100%" /></p>
+
+<p>&nbsp;</p>
+
+<p><strong>選擇到Anaconda網站下載</strong><a href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a><br />
+選擇Anaconda的好處是，可以一次就安裝好Python中大部分會使用的工具包。像是如果要做數據處理需要的numpy和pandas，網頁爬蟲會用到的BeautifulSoup，或是機器學習的SciKit-Learn。Anaconda都會直接準備好。同時還提供Juypter Notebook和Spyder兩個用來開發Python的整合開發環境（IDE）。可以說是Python使用者的懶人包，非常推薦。</p>
+
+<p>連到上面連結中Anaconda的網站，找到Download。</p>
+
+<p><img alt="Anaconda下載" src="/media/uploads/2019/04/08/anaconda-dl.png" style="width:100%" /></p>
+
+<p>點選進去後，可以看到目前提供的是Python 3.7的版本。我們可以先安裝此版本的Anaconda。</p>
+
+<p><img alt="Anaconda python版本選擇" src="/media/uploads/2019/04/08/anaconda-version-select.png" style="width:100%" /></p>
+
+<p>再使用<code>conda install python=3.6</code>的指令，更改Python的版本。在Windows環境可以使用命令提示字元（cmd）來執行指令，或者使用Anaconda安裝時提供的Anaconda Prompt也可以。MacOS則可以使用終端機（Terminal）來執行指令。</p>
+
+<p><img alt="Anaconda Python版本cmd切換" src="/media/uploads/2019/04/08/cmd-python-version.png" style="width:100%" /></p>
+
+<p>如果不想這麼麻煩的話，可以直接下載Anaconda 5.2.0的版本，使用Python 3.6。不同的Anaconda版本在這個網址中找到<a href="https://repo.anaconda.com/archive/">https://repo.anaconda.com/archive/</a></p>
+
+<p><img alt="Anaconda版本選擇說明" src="/media/uploads/2019/04/08/anaconda-version-intro.png" style="width:100%" /></p>
+
+<p>&nbsp;</p>
+
+<h4>二、開始建立django網站</h4>
+
+<p>在完成了Python的安裝後，我們就可以馬上來建立django的網站。</p>
+
+<p>首先我們需要建立一個虛擬開發環境。這邊只會有我們在這個django網站中用到的Python工具包。而不會含有其他沒有用到的Python工具包。這對於當前我們在開發時，或是之後要發佈網站時，都會比較方便。因為我們可以決定這個開發環境中各個工具包的版本。在發佈網站時，也可以讓遠端的伺服器只安裝我們用到的工具包。</p>
+
+<p><strong>建立虛擬開發環境</strong></p>
+
+<p>在cmd中先切換到我們要存放這個虛擬開發環境和網站的資料夾。接著執行下列的指令：<code>python -m venv django-venv</code>。我們就完成了一個命名為django-venv的虛擬開發環境。接著我們就可以開始建立我們的django網站。</p>
+
+<p><strong>建立django網站</strong></p>
+
+<p>讓我們先開啟剛建立的虛擬開發環境。<code>django-venv\Scripts\activate</code></p>
+
+<p>然後安裝django，<code>pip install django</code>。目前最新的版本是2.2。在安裝完django後。這邊提醒我們的pip版本可以更新。這裡就順帶執行pip的更新。pip是Python中用來安裝工具包的程式。<code>python -m pip install &ndash;upgrade pip</code></p>
+
+<p><img alt="建立虛擬開發環境" src="/media/uploads/2019/04/08/cmd-create-venv.png" style="width:100%" /></p>
+
+<p>再來就可以使用django的指令來建立第一個django網站了。<code>django-admin startproject mysite</code>。我們將這個django網站命名為mysite。在資料夾中可以看到django新建了一個同名的資料夾。</p>
+
+<p>接著我們先新建一個django app。這是django中拿來增加新功能時使用的。我們現在要建的app是用來顯示網站首頁，之後還可以再擴充功能拿來做為部落格網站。</p>
+
+<p>我們先切到剛建立的mysite資料夾。<code>cd mysite</code></p>
+
+<p>然後建立新的django app，命名為blog。<code>python manage.py startapp blog</code></p>
+
+<p>現在，在mysite資料夾中，除了原本的manage.py和mysite資料夾外，還可以看到新增了一個blog資料夾。</p>
+
+<pre>
+<code>mysite
+│   manage.py
+│
+├───blog
+│   │   admin.py
+│   │   apps.py
+│   │   models.py
+│   │   tests.py
+│   │   views.py
+│   │   __init__.py
+│   │
+│   └───migrations
+│           __init__.py
+│
+└───mysite
+    │   settings.py
+    │   urls.py
+    │   wsgi.py
+    │   __init__.py
+    │
+    └───__pycache__
+            settings.cpython-36.pyc
+            __init__.cpython-36.pyc
+</code></pre>
+
+<p>接下來，我們需要修改和新增一些檔案。</p>
+
+<p>首先在myblog/views.py中，新增一個顯示首頁的功能。在檔案內的下面加入以下的程式碼：</p>
+
+<pre>
+<code>def index(request):
+    return render(request, &quot;index.html&quot;)
+</code></pre>
+
+<p>然後，在myblog資料夾中新增一個templates資料夾，用於存放我們的網頁檔。</p>
+
+<p>在這個templates資料夾中新增一個index.html檔案。並添加下面的內容。</p>
+
+<pre>
+<code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;title&gt;My first django website&lt;/title&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>然後到第二層的mysite資料夾中，找到settings.py和urls.py兩個檔案</p>
+
+<p>在settings.py 中找到INSTALLED_APPS，新增我們的blog app。</p>
+
+<pre>
+<code>INSTALLED_APPS = [
+    &#39;django.contrib.admin&#39;,
+    &#39;django.contrib.auth&#39;,
+    &#39;django.contrib.contenttypes&#39;,
+    &#39;django.contrib.sessions&#39;,
+    &#39;django.contrib.messages&#39;,
+    &#39;django.contrib.staticfiles&#39;,
+    &#39;blog&#39;
+]
+</code></pre>
+
+<p>在urls.py中新增<code>import blog.views</code>和建立我們首頁的路徑。</p>
+
+<pre>
+<code>from django.contrib import admin
+from django.urls import path
+import blog.views
+
+urlpatterns = [
+    path(&#39;admin/&#39;, admin.site.urls),
+    path(&quot;&quot;, blog.views.index, name=&quot;index&quot;),
+]
+</code></pre>
+
+<p>這些都搞定後，在cmd中執行我們的網站伺服器，就可以看到我們完成的第一個python網站了。<code>python manage.py runserver</code></p>
+
+<p><img alt="執行網站伺服器" src="/media/uploads/2019/04/08/cmd-runserver.png" style="width:100%" /></p>
+
+<p>在網址列輸入<a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>，就可以看到了我們的網站了，是不是很簡單呢？</p>
+
+<p><img alt="第一個網站首頁" src="/media/uploads/2019/04/08/helloworld-website.png" style="width:100%" /></p>
+
+<p>這裡的程式碼可以到<a href="https://github.com/yuanping24/my-first-django-webiste">https://github.com/yuanping24/my-first-django-webiste</a>找到。</p>
+</p>
+</div>
+<div class="col-sm-4">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2>最近的文章</h2>
+</div>
+<div class="panel-body">
+<div class="list-group">
+<p class="list-group-item">開始製作django網站</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br><br>
+</div>
+<nav class="navbar navbar-inverse" >
+  <ul class="nav navbar-nav" style="font-weight:bold;position:absolute;left: 50%;transform: translatex(-50%);">
+    <li><a href="/">首頁</a></li>
+  </ul>
+</nav>
+</body>
+</html>
